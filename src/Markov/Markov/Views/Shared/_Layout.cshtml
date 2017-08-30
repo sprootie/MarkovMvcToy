@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Sprootie's Markov Machine</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" area-expanded="false">Corpora<i class="caret"></i></a>
+            <ul class="dropdown-menu">
+              <li>@Html.ActionLink("A Tale of Two Cities", "ATaleOfTwoCities", "Home")</li>
+              <li>@Html.ActionLink("Alice In Wonderland", "AliceInWonderland", "Home")</li>
+              <li>@Html.ActionLink("Cat In The Hat", "CatInTheHat", "Home")</li>
+              <li>@Html.ActionLink("Harry Potter", "HarryPotter", "Home")</li>
+              <li>@Html.ActionLink("Hawking's A Brief History of Time", "Hawking", "Home")</li>
+              <li>@Html.ActionLink("Writings of Kafka", "Kafka", "Home")</li>
+              <li>@Html.ActionLink("Lord of the Rings", "LordOfTheRings", "Home")</li>
+              <li>@Html.ActionLink("HP Lovecraft", "Lovecraft", "Home")</li>
+              <li>@Html.ActionLink("Oh The Places You'll Go!", "OhThePlacesYoullGo", "Home")</li>
+              <!--<li>@Html.ActionLink("Bible", "ReligiousText", "Home")</li>-->
+              <li>@Html.ActionLink("Trump Tweets (All)", "TrumpTweets", "Home")</li>
+              <li>@Html.ActionLink("Trump Tweets (2017 only)", "TrumpTweets2017", "Home")</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+  </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+          <p>&copy; 2017 - Sprootie, the Wonder Dog</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

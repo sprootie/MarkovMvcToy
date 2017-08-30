@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!--<select asp-for="SelectedCorpus" asp-items="ViewBag.AvailableCorpuses"></select>-->
+<h2>@ViewBag.StoryTitle</h2>
+<div>
+  @foreach (string s in ViewBag.StoryText)
+  {
+    <p>@s</p>
+  }
+</div>
+ 

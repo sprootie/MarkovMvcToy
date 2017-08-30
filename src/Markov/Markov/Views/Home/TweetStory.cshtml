@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!--<select asp-for="SelectedCorpus" asp-items="ViewBag.AvailableCorpuses"></select>-->
+<h2>@ViewBag.StoryTitle</h2>
+<script sync src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div>
+  @foreach (var rawText in ViewBag.StoryText)
+  {
+    var s = rawText.Trim();
+    if (s.Length>0 && s.IndexOf(" ")>0)
+    {
+      var tweetId = s.Substring(0, s.IndexOf(" "));
+      var tweetText = s.Substring(s.IndexOf(" "), s.Length - s.IndexOf(" "));
+
+      <div id="tweet@(tweetId)"></div>
+      <script>
+        twttr.ready(function() {
+
+          twttr.widgets.createTweet(
+
+              // Replace this with the Tweet ID
+              "@(tweetId)",
+              document.getElementById("tweet@(tweetId)"))
+            .then(function (el) {
+              if (el) {
+                var e = el.shadowRoot || el.contentDocument;
+                // Change the tweet text
+                var html = e.querySelector(".EmbeddedTweet-tweet .Tweet-text");
+                html.innerHTML = "@(tweetText)";
+              }
+            });
+        });
+      </script>
+    }
+  }
+</div>
+ 
